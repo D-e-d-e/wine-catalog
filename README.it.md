@@ -1,4 +1,4 @@
-## Diario dei vini
+# Diario dei vini
 
 Un' applicazione da terminale scritta in C per salvare, valutare e gestire una raccolta personale di vini.
 
@@ -59,6 +59,6 @@ Nome,Tipo,Vitigno,Anno,Voto,Note
 
 ## Autore
 
-Realizzato da Sabau Valeriu Denis come progetto personale per migliorare la conoscenza del linguaggio C e l'uso di Git. 
+Realizzato da Sabau Denis come progetto personale per migliorare la conoscenza del linguaggio C e l'uso di Git. 
 Siete liberi di usarlo, modificarlo e distribuirlo liberamente.
 
