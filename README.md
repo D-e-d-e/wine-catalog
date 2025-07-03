@@ -1,4 +1,4 @@
-# Wine Diary
+# Wine Catalog
 
 A terminal-based application written in C to save, rate, and manage a personal wine collection.
 Born from a passion for wine and C programming.
