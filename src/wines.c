@@ -1,33 +1,44 @@
 #include "wines.h"
+#include "utils.h"
 
-//Helper to read strings from stdin in a safe way
-static void read_line(const char* prompt, char* buffer, size_t max_len){
-    printf("%s", prompt);
-    if(fgets(buffer, max_len, stdin)){
-        buffer[strcspn(buffer, "\n")] = '\0';   //Remove newline
-    }else{
-        //if fgets fails, make sure we have an empty string
-        buffer[0] = '\0';
-    }
+static int compare_by_name(const void* a, const void* b){
+    Wine* w1 = *(Wine**)a;
+    Wine* w2 = *(Wine**)b;
+    return strcmp(w1->name, w2->name);
 }
 
-//Helper to read integers with control and cleaning buffer
-static int read_int(const char* prompt){
-    int val, res;
-    char c;
-
-    while(1){
-        printf("%s", prompt);
-        res = scanf("%d", &val);
-        while((c = getchar()) != '\n' && c != EOF); //buffer cleaning
-
-        if(res != 1){
-            printf("Invalid input, try again.\n");
-            continue;
-        }
-        return val;
-    }
+static int compare_by_year(const void* a, const void* b){
+    Wine* w1 = *(Wine**)a;
+    Wine* w2 = *(Wine**)b;
+    return strcmp(w1->prod_year, w2->prod_year);
 }
+
+static int compare_by_mark(const void* a, const void* b){
+    Wine* w1 = *(Wine**)a;
+    Wine* w2 = *(Wine**)b;
+    return strcmp(w1->mark, w2->mark); // from highest to lowest mark
+}
+
+/**
+ * @brief sorts the wines by users chosen criteria using function pointers
+ */
+static void sort_wines(Wine** wines, int count, int(*cmp)(const void*, const void*)){
+    if(cmp == NULL) return;
+
+    qsort(wines, count, sizeof(Wine*), cmp);
+}
+
+void print_wine_struct(Wine* w){
+    if(!w) return;
+
+    printf("Name: %s\n", w->name);
+    printf("Type: %s\n", w->type);
+    printf("Wine variety: %s\n", w->wine_variety);
+    printf("Production year: %d\n", w->prod_year);
+    printf("Mark: %d\n", w->mark);
+    printf("Notes: %s\n", w->optional_notes);
+}
+
 
 Wine* new_wine(WineCollection* collection){
     Wine* w = (Wine*)malloc(sizeof(Wine));
@@ -56,3 +67,31 @@ Wine* new_wine(WineCollection* collection){
     collection->count++;
     return w;
 }
+
+void printWineCollection(int sort_criteria, WineCollection* collection){
+
+    switch (sort_criteria)
+    {
+    case 0:
+        //already in insertion order, do nothing
+        break;
+    case 1:
+        sort_wines(collection->wines, collection->count, compare_by_name);
+        break;
+    case 2:
+        sort_wines(collection->wines, collection->count, compare_by_mark);
+        break;
+    case 3:
+        sort_wines(collection->wines, collection->count, compare_by_year);
+        break;
+    default:
+        printf("Invalid sort method, please try again.\n");
+        return; //exit early
+    }
+
+    printf("\n--- Wine Collection ---\n");
+    for(int i = 0; i < collection->count; i++){
+        print_wine_struct(collection->wines[i]);
+    }
+}
+

@@ -31,4 +31,11 @@ typedef struct wine_collection{
  */
 Wine* new_wine(WineCollection* collection);
 
+/**
+ * @brief prints wine collection by insertion date, name, mark or year
+ * @param sort_criteria criterion to sort the wines: 0 = insertion date, 1 = name, 2 = mark, 3 = production year 
+ * @param collection struct containing array of Wine pointers and number of elements in the array
+ */
+void printWineCollection(int sort_criteria, WineCollection* collection);
+
 #endif
