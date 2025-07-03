@@ -29,7 +29,7 @@ static int read_int(const char* prompt){
     }
 }
 
-Wine* newWine(WineCollection* collection){
+Wine* new_wine(WineCollection* collection){
     Wine* w = (Wine*)malloc(sizeof(Wine));
     if(!w){
         perror("malloc failed");

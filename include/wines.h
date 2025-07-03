@@ -29,6 +29,6 @@ typedef struct wine_collection{
  * @return pointer to newly allocated wine, or NULL
  * @note caller is responsible for freeing the pointer
  */
-Wine* newWine(WineCollection* collection);
+Wine* new_wine(WineCollection* collection);
 
 #endif
