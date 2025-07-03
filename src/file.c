@@ -78,8 +78,13 @@ void load_from_csv(WineCollection* collection, const char* filename){
         token = strtok(NULL, ",");
         if(token) strcpy(new_wine->optional_notes, token);
 
-        collection->wines[collection->count] = new_wine;
-        collection->count++;
+        if(collection->count < MAX_WINES){
+            collection->wines[collection->count] = new_wine;
+            collection->count++;
+        }else{
+            perror("Error: number of wines exceeds ammount supported, some wines wont be saved.\n");
+        }
     }
 
+    fclose(f);
 }
