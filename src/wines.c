@@ -95,3 +95,15 @@ void printWineCollection(int sort_criteria, WineCollection* collection){
     }
 }
 
+float average_rating(WineCollection* collection){
+    if(!collection || collection->count == 0){
+        perror("Invalid pointer or no wines to calculate average: please try again.\n");
+        return -1;
+    }
+    int sum = 0;
+    for(int i = 0; i < collection->count; i++){
+        sum+=(collection->wines[i])->mark;
+    }
+    return (float)sum/collection->count;
+}
+

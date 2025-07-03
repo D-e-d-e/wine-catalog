@@ -38,4 +38,11 @@ Wine* new_wine(WineCollection* collection);
  */
 void printWineCollection(int sort_criteria, WineCollection* collection);
 
+/**
+ * @brief returns the average rating of your collection of wines
+ * @param collection struct containing collection of wines and number of wines collected
+ */
+float average_rating(WineCollection* collection);
+
+
 #endif
