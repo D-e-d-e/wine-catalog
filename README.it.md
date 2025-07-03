@@ -42,7 +42,7 @@ Segui il menu a schermo per inserire, cercare o visualizzare i vini.
 
 ## Formato del file CSV
 
-I dati vengono salvati nel file vini.csv con il seguente formato:
+I dati vengono salvati nel file wines.csv con il seguente formato:
 
 Nome,Tipo,Vitigno,Anno,Voto,Note
 
