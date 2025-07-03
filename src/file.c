@@ -12,7 +12,7 @@ void save_on_csv(WineCollection* collection, const char* filename){
         return;
     }
     
-    fprintf(f, "name,type,wine_variety,prod_year,mark,optional_notes");
+    fprintf(f, "name,type,wine_variety,prod_year,mark,optional_notes\n");
     //loop to save in .csv file
     for(int i = 0; i < collection->count; i++){
 

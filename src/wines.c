@@ -90,8 +90,12 @@ void printWineCollection(int sort_criteria, WineCollection* collection){
     }
 
     printf("\n--- Wine Collection ---\n");
+    putchar('\n');
     for(int i = 0; i < collection->count; i++){
         print_wine_struct(collection->wines[i]);
+        putchar('\n');
+        printf("-----------------\n");
+        putchar('\n');
     }
 }
 
@@ -107,3 +111,12 @@ float average_rating(WineCollection* collection){
     return (float)sum/collection->count;
 }
 
+void print_menu(){
+    printf("-----------------\n");
+    printf("Select next task: \n");
+    printf("-----------------\n");
+    printf("0 -> Exit catalog.\n");
+    printf("1 -> print wine collection.\n");
+    printf("2 -> add new wine to collection.\n");
+    printf("3 -> calculate average wines rating.\n");
+}

@@ -36,7 +36,7 @@ gcc -Wall -o diario-vini src/main.c src/vini.c src/file.c
 
 Dopo la compilazione esegui il programma con:
 ```bash
-./diario-vini
+./wine-catalog
 ```
 Segui il menu a schermo per inserire, cercare o visualizzare i vini.
 

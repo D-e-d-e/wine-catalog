@@ -4,6 +4,7 @@
 #include "wines.h"
 
 #define MAX_LINE_LEN 370
+#define DATA_FILE_PATH "data/wines.csv"
 
 /**
  * @brief allows saving of wines collection on .csv file

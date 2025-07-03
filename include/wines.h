@@ -44,5 +44,9 @@ void printWineCollection(int sort_criteria, WineCollection* collection);
  */
 float average_rating(WineCollection* collection);
 
+/**
+ * @brief prints options menu
+ */
+void print_menu();
 
 #endif
