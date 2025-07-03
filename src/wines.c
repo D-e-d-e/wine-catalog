@@ -10,13 +10,13 @@ static int compare_by_name(const void* a, const void* b){
 static int compare_by_year(const void* a, const void* b){
     Wine* w1 = *(Wine**)a;
     Wine* w2 = *(Wine**)b;
-    return strcmp(w1->prod_year, w2->prod_year);
+    return w1->prod_year - w2->prod_year;
 }
 
 static int compare_by_mark(const void* a, const void* b){
     Wine* w1 = *(Wine**)a;
     Wine* w2 = *(Wine**)b;
-    return strcmp(w1->mark, w2->mark); // from highest to lowest mark
+    return w1->mark - w2->mark; // from highest to lowest mark
 }
 
 /**

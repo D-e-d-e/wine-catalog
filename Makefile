@@ -1,7 +1,7 @@
 # === Configuration ===
 
 # Final executable name
-TARGET = bin/rubrica
+TARGET = bin/wine_catalog
 
 # Compiler and flag
 CC = gcc
