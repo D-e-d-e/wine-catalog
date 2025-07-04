@@ -57,6 +57,9 @@ int main(){
                 float av = average_rating(collection);
                 printf("The average rating of your wine collection is %.1f.\n", av);
                 break;
+            case 4:
+                remove_wine(collection);
+                break;
             default:
                 //exit early
                 printf("Invalid action, please try again!");
@@ -68,6 +71,11 @@ int main(){
 
     printf("Saving catalog...\n");
     save_on_csv(collection, DATA_FILE_PATH);
+    putchar('\n');
+
+    printf("Freeing allocated memory...\n");
+    free_wine_collection(collection);
+
     putchar('\n');
     printf("Done! goodbye!\n");
 
