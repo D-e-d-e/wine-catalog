@@ -119,4 +119,56 @@ void print_menu(){
     printf("1 -> print wine collection.\n");
     printf("2 -> add new wine to collection.\n");
     printf("3 -> calculate average wines rating.\n");
+    printf("4 -> remove 1 selected wine.\n");
+}
+
+void remove_wine(WineCollection* collection){
+    if(!collection){
+        perror("Error: collection doesnt exist or is already empty!\n");
+        return;
+    }
+
+    printf("Insert wine name to remove: \n");
+    char name[MAX_NAME_LEN];
+    scanf("%s", name);
+
+    //searchig wine to remove
+    int found = 0;
+    int i;
+    for(i = 0; i < collection->count && !found; i++){
+        
+        if(strcmp(name, collection->wines[i]->name) == 0){
+            found = 1;
+
+            free(collection->wines[i]);
+
+            //left shifting of all remaining elements
+            for(int j = i; j < collection->count; j++){
+                collection->wines[j] = collection->wines[j+1];
+            }
+
+            collection->count--;
+
+            printf("Succesfully removed selecred wine.\n");
+            return;
+        }
+    }
+
+    if(found == 0){
+        printf("Error: couldn't remove selected wine. Try again.\n");
+    }
+}
+
+void free_wine_collection(WineCollection* collection){
+    if(!collection){
+        perror("Couldn't free allocated memory for wine collection.\n");
+        return;
+    }
+
+    for(int i = 0; i < collection->count; i++){
+        free(collection->wines[i]);
+    }
+
+    free(collection);
+    collection = NULL;
 }

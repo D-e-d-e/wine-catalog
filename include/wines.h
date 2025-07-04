@@ -49,4 +49,17 @@ float average_rating(WineCollection* collection);
  */
 void print_menu();
 
+/**
+ * @brief remove wine selected by name
+ * @param collection collection of saved wines
+ */
+void remove_wine(WineCollection* collection);
+
+/**
+ * @brief frees memory for dinamically allocated wine collection
+ * @param collection collection of stored wines that will be freed
+ */
+void free_wine_collection(WineCollection* collection);
+
+
 #endif
