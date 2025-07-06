@@ -61,6 +61,9 @@ int main(){
                 remove_wine(collection);
                 break;
             case 5:
+                remove_all_wines(collection);
+                break;
+            case 6:
                 total_collection(collection);
                 break;
             default:

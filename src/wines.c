@@ -120,7 +120,8 @@ void print_menu(){
     printf("2 -> add new wine to collection.\n");
     printf("3 -> calculate average wines rating.\n");
     printf("4 -> remove 1 selected wine.\n");
-    printf("5 -> print number of saved wines.\n");
+    printf("5 -> remove all wines from collection.\n");
+    printf("6 -> print number of saved wines.\n");
 }
 
 void remove_wine(WineCollection* collection){
@@ -158,6 +159,21 @@ void remove_wine(WineCollection* collection){
     if(found == 0){
         printf("Error: couldn't remove selected wine. Try again.\n");
     }
+}
+
+void remove_all_wines(WineCollection* collection){
+    if(!collection){
+        perror("Invalid collectoin. Try again.\n");
+        return;
+    }
+
+    for(int i = 0; i < collection->count; i++){
+        free(collection->wines[i]);
+        collection->wines[i] = NULL;
+    }
+    collection->count = 0;
+
+    printf("Succesfully removed all wines from collection.\n");
 }
 
 void free_wine_collection(WineCollection* collection){

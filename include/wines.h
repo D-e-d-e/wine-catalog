@@ -56,6 +56,12 @@ void print_menu();
 void remove_wine(WineCollection* collection);
 
 /**
+ * @brief removes all saved wines from collectoin
+ * @param collection collection of saved wines
+ */
+void remove_all_wines(WineCollection* collection);
+
+/**
  * @brief frees memory for dinamically allocated wine collection
  * @param collection collection of stored wines that will be freed
  */
