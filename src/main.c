@@ -60,6 +60,9 @@ int main(){
             case 4:
                 remove_wine(collection);
                 break;
+            case 5:
+                total_collection(collection);
+                break;
             default:
                 //exit early
                 printf("Invalid action, please try again!");

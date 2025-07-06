@@ -120,6 +120,7 @@ void print_menu(){
     printf("2 -> add new wine to collection.\n");
     printf("3 -> calculate average wines rating.\n");
     printf("4 -> remove 1 selected wine.\n");
+    printf("5 -> print number of saved wines.\n");
 }
 
 void remove_wine(WineCollection* collection){
@@ -171,4 +172,8 @@ void free_wine_collection(WineCollection* collection){
 
     free(collection);
     collection = NULL;
+}
+
+void total_collection(WineCollection* collection){
+    printf("Total number of wines is: %d.\n", collection->count);
 }

@@ -61,5 +61,11 @@ void remove_wine(WineCollection* collection);
  */
 void free_wine_collection(WineCollection* collection);
 
+/**
+ * @brief prints number of wines in collection
+ * @param collection collection of wines
+ */
+void total_collection(WineCollection* collection);
+
 
 #endif
