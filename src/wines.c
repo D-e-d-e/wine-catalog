@@ -70,6 +70,10 @@ Wine* new_wine(WineCollection* collection){
 
 void printWineCollection(int sort_criteria, WineCollection* collection){
 
+    if(collection->count == 0){
+        printf("Your collection is empty. Insert wine before trying to print.\n");
+        return;
+    }
     switch (sort_criteria)
     {
     case 0:
